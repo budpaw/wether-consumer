@@ -1,0 +1,10 @@
+main:
+  countries:
+    - country: PL
+      city: lodz
+    - country: DK
+      city: copenhagen
+    - country: PK
+      city: islamabad
+    - country: BE
+      city: brussels
