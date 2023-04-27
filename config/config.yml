@@ -1,6 +1,10 @@
 main:
   host: https://weather.visualcrossing.com
   api_key: <YOUR_API_KEY>
+  fields:
+    - datetime
+    - temp
+    - windspeed
   countries:
     - country: PL
       city: lodz
