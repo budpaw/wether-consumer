@@ -23,7 +23,9 @@ class WeatherConsumer:
         df['datetime'] = df.apply(lambda x: x['days']['datetime'], axis = 1)
         df['temp'] = df.apply(lambda x: x['days']['temp'], axis = 1)
         df['windspeed'] = df.apply(lambda x: x['days']['windspeed'], axis = 1)
-        df=df.drop('days', axis = 1)
+        df=df.drop(['days', 'queryCost', 'latitude', 'longitude','resolvedAddress','timezone', 'tzoffset'], axis = 1)
+        df = df.groupby('address').agg({'temp': ['mean', 'median'],'windspeed': ['mean', 'median']})
+        df.columns = ['temp_avg', 'temp_median', 'wind_avg', 'wind_median']
         return df
 
     
